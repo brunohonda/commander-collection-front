@@ -1,0 +1,30 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+
+$CommanderCollection-primary: mat.define-palette(mat.$deep-purple-palette);
+// $CommanderCollection-accent: mat.define-palette(mat.$teal-palette, A200, A100, A400);
+$CommanderCollection-accent: mat.define-palette(mat.$teal-palette, 600, 500, 200);
+$CommanderCollection-warn: mat.define-palette(mat.$red-palette, 600);
+
+$CommanderCollection-light-theme: mat.define-light-theme((
+  color: (
+    primary: $CommanderCollection-primary,
+    accent: $CommanderCollection-accent,
+    warn: $CommanderCollection-warn,
+  )
+));
+
+$CommanderCollection-dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $CommanderCollection-primary,
+    accent: $CommanderCollection-accent,
+    warn: $CommanderCollection-warn,
+  )
+));
+
+@include mat.all-component-themes($CommanderCollection-dark-theme);
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
